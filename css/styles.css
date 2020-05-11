@@ -476,18 +476,6 @@ h5 {
   display: grid;
 }
 
-.avatar {
-  grid-area: avatar;
-}
-
-.name {
-  grid-area: name;
-}
-
-.location {
-  grid-area: location;
-}
-
 /* ============================================= */
 /*              Wrappers / Containers            */
 /* ============================================= */
