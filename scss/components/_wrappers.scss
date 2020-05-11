@@ -1,0 +1,14 @@
+/* ============================================= */
+/*              Wrappers / Containers            */
+/* ============================================= */
+
+.whole-container {
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.card {
+    padding: 1.3rem;
+    border: $color-anothergray $size-card-border solid;
+    border-radius: $size-input-border-radius;
+}

@@ -1,0 +1,21 @@
+%rounded {
+    border-radius: $size-rounded-radius;
+}
+
+%rounded-rectangular-border {
+    border-radius: $size-input-border-radius;
+}
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%standard-bottom-spacing {
+    margin-bottom: 2rem;
+}

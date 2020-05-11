@@ -1,0 +1,28 @@
+/* ============================================= */
+/*              Mixins                           */
+/* ============================================= */
+
+@mixin mq($device) {
+    $screenSize: map-get($map: $breakpoints, $key: $device);
+
+    @if $screenSize == null {
+        @error "#{$device} is not a valid breakpoint name";
+    }
+
+    @media (min-width: $screenSize) {
+        @content;
+    }
+}
+
+@mixin dimensions($width, $height) {
+    width: $width;
+    height: $height;
+}
+  
+@mixin flexy($direction: "row") {
+   @if $direction == row {
+     @extend %flex-row;
+   } @else if $direction == column {
+    @extend %flex-column;
+   }
+}

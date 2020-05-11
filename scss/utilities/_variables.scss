@@ -1,0 +1,76 @@
+/* ============================================= */
+/*              Colors                           */
+/* ============================================= */
+
+$color-white: #fff;
+$color-black: #000;
+$color-gray: #808080;
+$color-lightgray: #f5f5f5;
+$color-anothergray: #b2b2b2;
+
+$color-primary: #696cb7;
+$color-secondary: #444367;
+$color-accent: #76c284;
+$color-second-accent: #ffffcc;
+
+$color-buttons: (
+    "default": $color-primary,
+    "error": #e4757a,
+    "info": #927bc1,
+    "success": #63cc82,
+    "warning": $color-accent,
+);
+
+$color-cols: (
+    "col-1": #927bc1,
+    "col-2": #fd7856,
+    "col-3": #deb2ee,
+    "col-4": #7ee6fd,
+    "col-5": #88d9a0,
+    "col-6": #4da2bb,
+    "col-7": #ec9fa3,
+    "col-8": #fd9f85,
+    "col-9": #e4757a,
+    "col-10": #63cc82,
+    "col-11": $color-accent,
+    "col-12": #80e8d1,
+);
+
+/* ============================================= */
+/*              Sizes                            */
+/* ============================================= */
+
+$size-rounded-radius: 50%;
+$size-card-border: 0.1rem;
+$size-input-border-radius: 0.3125rem;
+
+/* ============================================= */
+/*              Font Sizes                       */
+/* ============================================= */
+
+$size-font-title: 1.2rem;
+$size-font-name: 1.1rem;
+
+
+/* ============================================= */
+/*              Font Stacks                      */
+/* ============================================= */
+
+$font-url--google        : "https://fonts.googleapis.com/css?family=Raleway:300,400,700";
+$font-family--primary    : "Raleway", sans-serif;
+
+/* ============================================= */
+/*              Font Weights                      */
+/* ============================================= */
+
+$font-weight-thin: 300;
+$font-weight-thick: 700;
+
+/* ============================================= */
+/*              Media query breakpoints          */
+/* ============================================= */
+
+$breakpoints: (
+    "tablet": 768px,
+    "desktop": 1024px,
+);

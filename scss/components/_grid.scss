@@ -1,0 +1,31 @@
+/* ============================================= */
+/*              Grid System                      */
+/* ============================================= */
+
+.grid-container {
+    display: grid;
+    
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    // grid-template-rows: auto;
+    grid-gap: 0rem 1rem;
+    grid-template-areas: 
+    "avatar name"
+    "avatar email"
+    "avatar location";
+}
+
+.avatar {
+    grid-area: avatar;
+}
+
+.name {
+    grid-area: name;
+}
+
+.location {
+    grid-area: location;
+}
