@@ -7,8 +7,19 @@
     margin: 1rem auto;
 }
 
+
 .card {
+    @include flexy("row");
+    justify-content: space-between;
+
     padding: 1.3rem;
     border: $color-anothergray $size-card-border solid;
     border-radius: $size-input-border-radius;
+
+    &-description {
+        @include flexy("column");
+        justify-content: center;
+        margin-right: auto;
+        margin-left: 2rem;
+    }
 }

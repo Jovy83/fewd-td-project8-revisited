@@ -24,5 +24,7 @@
      @extend %flex-row;
    } @else if $direction == column {
     @extend %flex-column;
+   } @else {
+    @error "#{$direction} is not a valid flex direction";
    }
 }

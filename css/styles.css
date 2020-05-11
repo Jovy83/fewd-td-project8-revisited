@@ -30,6 +30,16 @@
   border-radius: 50%;
 }
 
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ============================================= */
 /* Base Imports */
 /* ============================================= */
@@ -426,8 +436,19 @@ h5 {
 }
 
 .name {
+  color: #000;
   font-size: 1.1rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.email {
+  margin-bottom: 0.5rem;
+  color: #808080;
+}
+
+.location {
+  color: #808080;
 }
 
 /* ============================================= */
@@ -455,13 +476,6 @@ h5 {
   display: grid;
 }
 
-.card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 0rem 1rem;
-  grid-template-areas: "avatar name" "avatar email" "avatar location";
-}
-
 .avatar {
   grid-area: avatar;
 }
@@ -483,9 +497,15 @@ h5 {
 }
 
 .card {
+  justify-content: space-between;
   padding: 1.3rem;
   border: #b2b2b2 0.1rem solid;
   border-radius: 0.3125rem;
+}
+.card-description {
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 2rem;
 }
 
 /* ============================================= */
