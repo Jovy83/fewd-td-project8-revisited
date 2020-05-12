@@ -9,17 +9,24 @@
 
 
 .card {
-    @include flexy("row");
-    justify-content: space-between;
+    @include mq("desktop") {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 
-    padding: 1.3rem;
+    @include flexy("column");
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
     border: $color-anothergray $size-card-border solid;
     border-radius: $size-input-border-radius;
 
     &-description {
+        @include mq("desktop") {
+            margin-left: 1rem;
+        }
+
         @include flexy("column");
-        justify-content: center;
-        margin-right: auto;
-        margin-left: 2rem;
     }
 }

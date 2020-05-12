@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Employee Directory</title>
+        <link href="css/jquery.lightbox-0.5.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
@@ -13,9 +14,10 @@
         </header>
   
         <main>
+          <input id="searchBoxInput" class="form-input" type="search" placeholder="Search..." />
           <div id="cards-div" class="grid-container">
 
-            <div class="card">
+            <!-- <div class="card">
               <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
 
               <div class="card-description">
@@ -23,7 +25,7 @@
                 <p class="email">test@test.com</p>
                 <p class="location">Pasig</p>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </main>
@@ -36,6 +38,7 @@
         <!-- JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment-with-locales.min.js" integrity="sha256-8d6kI5cQEwofkZmaPTRbKgyD70GN5mDpTYNP9YWhTlI=" crossorigin="anonymous"></script>
+        <script src="js/lightbox/jquery.lightbox-0.5.wenbert.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

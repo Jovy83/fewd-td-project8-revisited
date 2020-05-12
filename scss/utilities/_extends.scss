@@ -19,3 +19,20 @@
 %standard-bottom-spacing {
     margin-bottom: 2rem;
 }
+
+%standard-form-input {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    background-color: $color-lightgray;
+    border: $size-input-border solid transparent;
+    border-radius: $size-input-border-radius;
+    transition: background 0.5s, border 0.5s;
+  
+    &:focus {
+      outline: none;
+      border: $size-input-border solid $color-accent;
+      background-color: $color-second-accent;
+    }
+}

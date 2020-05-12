@@ -3,6 +3,7 @@
 /* ============================================= */
 
 const $cardsDiv = $("#cards-div");
+const $searchBoxInput = $("#searchBoxInput");
 
 /* ============================================= */
 /*              Variables                        */
@@ -47,7 +48,21 @@ const generateEmployeeCard = (employee) => {
     console.log(employee)
 
     // TODO: continue here
-    
+    const cardDivElement = `
+    <div class="card">
+        <img class="avatar" src="${employee.profilePicUrl}" alt="Employee picture">
+
+        <div class="card-description">
+            <h2 class="name">${employee.fullName}</h2>
+            <p class="email">${employee.email}</p>
+            <p class="location">${employee.city}</p>
+        </div>
+    </div>
+    `;
+
+    $cardsDiv.append(cardDivElement);
+
+
 }
 
 const parseEmployeeJSON = (jsonData) => {
@@ -59,6 +74,7 @@ const parseEmployeeJSON = (jsonData) => {
         const fullAddress = `${employeeData.location.street.number} ${employeeData.location.street.name}, ${employeeData.location.state} ${employeeData.location.postcode}`
         const phone = employeeData.phone;
         const dateOfBirth = `Birthday: ${convertDateStringToMMDDYY(employeeData.dob.date)}`;
+        const profilePicUrl = employeeData.picture.large;
 
         const employee = {
             fullName,
@@ -66,11 +82,16 @@ const parseEmployeeJSON = (jsonData) => {
             city,
             fullAddress,
             phone,
-            dateOfBirth
+            dateOfBirth,
+            profilePicUrl
         };
+
+        employees.push(employee); // store employee to our employees array so we can use it for searching later
 
         generateEmployeeCard(employee);
     })
+
+
 };
 
 
