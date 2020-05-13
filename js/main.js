@@ -2,8 +2,9 @@
 /*              DOM variables                    */
 /* ============================================= */
 
-const $cardsDiv = $("#cards-div");
-const $searchBoxInput = $("#searchBoxInput");
+const $cardsDiv = $(`#cards-div`);
+const $searchBoxInput = $(`#searchBoxInput`);
+const $modalContentDiv = $(`#modalContentDiv`);
 
 /* ============================================= */
 /*              Variables                        */
@@ -63,7 +64,7 @@ const generateEmployeeCard = (employee) => {
 
 const parseEmployeeJSON = (jsonData) => {
     // loop through the jsonData array
-    jsonData.results.forEach(employeeData => {
+    jsonData.results.forEach((employeeData, index) => {
         const fullName = `${employeeData.name.first} ${employeeData.name.last}`;
         const email = employeeData.email;
         const city = employeeData.location.city;
@@ -73,6 +74,7 @@ const parseEmployeeJSON = (jsonData) => {
         const profilePicUrl = employeeData.picture.large;
 
         const employee = {
+            index, 
             fullName,
             email,
             city,
@@ -103,12 +105,34 @@ $(document).ready( ()=> {
 /*              Event listeners                  */
 /* ============================================= */
 
-$cardsDiv.on(`click`, '.card', (event) => {
+$cardsDiv.on(`click`, `.card`, (event) => {
 
     const cardClicked = event.target;
     const cardClickedId = event.target.id;
 
+    // get the card's employee info
+
+    // look for that employee in the employees array
+
+    // show the modal view and fill it up with that employee's info
+
     //todo: continue here. need to populate the modal card 
     
-    console.log('clicked');
+});
+
+$modalContentDiv.on(`click`, `span`, (event) => {
+
+    const spanClicked = event.target;
+
+    if ($(spanClicked).hasClass(`btn-close`)) {
+        // hide the modal view
+    } else if ($(spanClicked).hasClass(`btn-prev`)) {
+        // if there is a prev employee in the array, fill up with prev employee's info
+
+        // if none, do nothing
+    } else {
+        // if there is a next employee in the array, fill up with next employee's info
+
+        // if none, do nothing
+    }
 });
