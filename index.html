@@ -3,18 +3,35 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Employee Directory</title>
-        <link href="css/jquery.lightbox-0.5.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
 
-      <div class="whole-container">
+      <div class="modal-container">
+        <!-- JS will generate contents for this -->
+
+        <div class="modal-content">
+          <span class="btn btn-close">X</span>
+          <img class="avatar-modal" src="https://randomuser.me/api/portraits/men/0.jpg" alt="Employee picture">
+          <h2 class="name-modal">Test Name</h2>
+          <p class="contact-modal">test@test.com</p>
+          <p class="contact-modal">Pasig</p>
+          <span class="btn btn-prev"><</span>
+          <span class="btn btn-next">></span>
+          <p class="contact-modal top-separator">(123)-123123</p>
+          <p class="contact-modal">111 Test Ave., CA 12345</p>
+          <p class="contact-modal">Birthday: 01/02/20</p>
+        </div>
+      </div>
+
+      <div class="main-container">
         <header>
           <h1 class="title">Awesome Startup Employee Directory</h1>
         </header>
   
         <main>
           <input id="searchBoxInput" class="form-input" type="search" placeholder="Search..." />
+
           <div id="cards-div" class="grid-container">
 
             <!-- <div class="card">
@@ -22,8 +39,8 @@
 
               <div class="card-description">
                 <h2 class="name">Test Name</h2>
-                <p class="email">test@test.com</p>
-                <p class="location">Pasig</p>
+                <p class="contact-card">test@test.com</p>
+                <p class="contact-card">Pasig</p>
               </div>
             </div> -->
 
@@ -38,7 +55,6 @@
         <!-- JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment-with-locales.min.js" integrity="sha256-8d6kI5cQEwofkZmaPTRbKgyD70GN5mDpTYNP9YWhTlI=" crossorigin="anonymous"></script>
-        <script src="js/lightbox/jquery.lightbox-0.5.wenbert.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

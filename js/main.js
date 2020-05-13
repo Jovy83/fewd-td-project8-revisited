@@ -13,7 +13,6 @@ const numberOfResults = 12;
 const apiUrl = `https://randomuser.me/api/?results=${numberOfResults}&nat=us`
 let employees = [];
 
-
 /* ============================================= */
 /*              Helper functions                 */
 /* ============================================= */
@@ -47,22 +46,19 @@ const fetchData = (url) => {
 const generateEmployeeCard = (employee) => {
     console.log(employee)
 
-    // TODO: continue here
     const cardDivElement = `
     <div class="card">
         <img class="avatar" src="${employee.profilePicUrl}" alt="Employee picture">
 
         <div class="card-description">
             <h2 class="name">${employee.fullName}</h2>
-            <p class="email">${employee.email}</p>
-            <p class="location">${employee.city}</p>
+            <p class="contact-card">${employee.email}</p>
+            <p class="contact-card">${employee.city}</p>
         </div>
     </div>
     `;
 
     $cardsDiv.append(cardDivElement);
-
-
 }
 
 const parseEmployeeJSON = (jsonData) => {
@@ -90,8 +86,6 @@ const parseEmployeeJSON = (jsonData) => {
 
         generateEmployeeCard(employee);
     })
-
-
 };
 
 
@@ -103,4 +97,18 @@ const parseEmployeeJSON = (jsonData) => {
 $(document).ready( ()=> {
     fetchData(apiUrl)
         .then(parseEmployeeJSON)
+});
+
+/* ============================================= */
+/*              Event listeners                  */
+/* ============================================= */
+
+$cardsDiv.on(`click`, '.card', (event) => {
+
+    const cardClicked = event.target;
+    const cardClickedId = event.target.id;
+
+    //todo: continue here. need to populate the modal card 
+    
+    console.log('clicked');
 });

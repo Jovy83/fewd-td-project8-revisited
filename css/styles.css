@@ -26,11 +26,11 @@
 /*              Mixins                           */
 /* ============================================= */
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,700");
-.avatar {
+.avatar-modal, .avatar {
   border-radius: 50%;
 }
 
-.card-description, .card {
+.modal-content, .card-description, .card {
   display: flex;
   flex-direction: column;
 }
@@ -454,7 +454,6 @@ h5 {
 .name {
   color: #000;
   font-size: 1.1rem;
-  font-weight: bold;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -463,27 +462,39 @@ h5 {
     text-align: left;
   }
 }
+.name-modal {
+  color: #000;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
 
-.email {
+.contact-card {
   margin-bottom: 0.5rem;
   color: #808080;
   text-align: center;
-  text-overflow: ellipsis;
 }
 @media (min-width: 1024px) {
-  .email {
+  .contact-card {
     text-align: left;
   }
 }
-
-.location {
+.contact-card:last-child {
+  margin-bottom: 0;
+}
+.contact-modal {
+  margin-bottom: 1rem;
   color: #808080;
   text-align: center;
 }
-@media (min-width: 1024px) {
-  .location {
-    text-align: left;
-  }
+.contact-modal:last-child {
+  margin-bottom: 0;
+}
+
+.top-separator {
+  border-top: #b2b2b2 0.1rem solid;
+  padding-top: 2rem;
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 /* ============================================= */
@@ -492,6 +503,26 @@ h5 {
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
+.btn {
+  cursor: pointer;
+}
+.btn-close {
+  align-self: flex-end;
+  cursor: pointer;
+}
+.btn-prev {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  font-size: 2rem;
+}
+.btn-next {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  font-size: 2rem;
+}
+
 /* ============================================= */
 /*              Forms                            */
 /* ============================================= */
@@ -514,6 +545,9 @@ h5 {
   .avatar {
     margin-bottom: 0;
   }
+}
+.avatar-modal {
+  margin-bottom: 2rem;
 }
 
 /* ============================================= */
@@ -540,9 +574,10 @@ h5 {
 /* ============================================= */
 /*              Wrappers / Containers            */
 /* ============================================= */
-.whole-container {
+.main-container {
   width: 90%;
-  margin: 1rem auto;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
 
 .card {
@@ -551,6 +586,7 @@ h5 {
   padding: 1rem;
   border: #b2b2b2 0.1rem solid;
   border-radius: 0.3125rem;
+  transition: border 0.5s;
 }
 @media (min-width: 1024px) {
   .card {
@@ -561,6 +597,33 @@ h5 {
 @media (min-width: 1024px) {
   .card-description {
     margin-left: 1rem;
+  }
+}
+.card:hover {
+  border-color: #444367;
+  border-width: 0.3rem;
+}
+
+.modal-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 0.3125rem;
+  top: 15%;
+  width: 80%;
+}
+@media (min-width: 768px) {
+  .modal-content {
+    width: 30%;
   }
 }
 

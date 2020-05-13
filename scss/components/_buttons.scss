@@ -1,3 +1,26 @@
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
+
+.btn {
+    cursor: pointer;
+
+    &-close {
+        align-self: flex-end;
+        cursor: pointer;
+    }
+
+    &-prev {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        font-size: 2rem;
+    }
+
+    &-next {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        font-size: 2rem;
+    }
+}

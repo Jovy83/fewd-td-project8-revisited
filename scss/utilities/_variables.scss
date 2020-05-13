@@ -7,6 +7,7 @@ $color-black: #000;
 $color-gray: #808080;
 $color-lightgray: #f5f5f5;
 $color-anothergray: #b2b2b2;
+$color-shadow: rgba(0, 0, 0, 0.5);
 
 $color-primary: #696cb7;
 $color-secondary: #444367;
@@ -42,6 +43,7 @@ $color-cols: (
 
 $size-rounded-radius: 50%;
 $size-card-border: 0.1rem;
+$size-card-border-hover: 0.3rem;
 $size-input-border: 0.1rem;
 $size-input-border-radius: 0.3125rem;
 

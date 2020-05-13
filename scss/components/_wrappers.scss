@@ -2,11 +2,11 @@
 /*              Wrappers / Containers            */
 /* ============================================= */
 
-.whole-container {
+.main-container {
     width: 90%;
-    margin: 1rem auto;
+    margin: 0 auto;
+    padding: 1rem 0;
 }
-
 
 .card {
     @include mq("desktop") {
@@ -21,6 +21,7 @@
     padding: 1rem;
     border: $color-anothergray $size-card-border solid;
     border-radius: $size-input-border-radius;
+    transition: border 0.5s;
 
     &-description {
         @include mq("desktop") {
@@ -29,4 +30,37 @@
 
         @include flexy("column");
     }
+
+    &:hover {
+        border-color: $color-secondary;
+        border-width: $size-card-border-hover;
+    }
+}
+
+.modal {
+    &-container {
+        // display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background-color: $color-shadow;
+    }
+    
+    &-content {
+        @include mq("tablet") {
+            width: 30%;
+        }
+
+        @include flexy("column");
+        align-items: center;
+        position: relative;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: $color-white;
+        border-radius: $size-input-border-radius;
+        top: 15%;
+        width: 80%;
+    }
+
 }
