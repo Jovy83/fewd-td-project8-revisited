@@ -586,7 +586,7 @@ h5 {
   padding: 1rem;
   border: #b2b2b2 0.1rem solid;
   border-radius: 0.3125rem;
-  transition: border 0.5s;
+  transition: transform 0.5s, border 0.5s;
 }
 @media (min-width: 1024px) {
   .card {
@@ -601,10 +601,11 @@ h5 {
 }
 .card:hover {
   border-color: #444367;
-  border-width: 0.3rem;
+  transform: scale(1.01);
 }
 
 .modal-container {
+  display: none;
   position: fixed;
   width: 100%;
   height: 100%;

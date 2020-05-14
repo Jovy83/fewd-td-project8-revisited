@@ -21,7 +21,7 @@
     padding: 1rem;
     border: $color-anothergray $size-card-border solid;
     border-radius: $size-input-border-radius;
-    transition: border 0.5s;
+    transition: transform 0.5s, border 0.5s;
 
     &-description {
         @include mq("desktop") {
@@ -33,13 +33,13 @@
 
     &:hover {
         border-color: $color-secondary;
-        border-width: $size-card-border-hover;
+        transform: scale(1.01);
     }
 }
 
 .modal {
     &-container {
-        // display: none;
+        display: none;
         position: fixed;
         width: 100%;
         height: 100%;

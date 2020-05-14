@@ -4,6 +4,7 @@
 
 const $cardsDiv = $(`#cards-div`);
 const $searchBoxInput = $(`#searchBoxInput`);
+const $modalContainerDiv = $(`#modalContainer`);
 const $modalContentDiv = $(`#modalContentDiv`);
 
 /* ============================================= */
@@ -13,6 +14,7 @@ const $modalContentDiv = $(`#modalContentDiv`);
 const numberOfResults = 12;
 const apiUrl = `https://randomuser.me/api/?results=${numberOfResults}&nat=us`
 let employees = [];
+let employeeNavigationTracker = 0;
 
 /* ============================================= */
 /*              Helper functions                 */
@@ -23,8 +25,6 @@ const convertStringToBoolean = string => {
 };
 
 const convertDateStringToMMDDYY = (dateString) => {
-    console.log(dateString);
-    
     return moment(dateString).calendar();
 }
 
@@ -45,10 +45,10 @@ const fetchData = (url) => {
 
 
 const generateEmployeeCard = (employee) => {
-    console.log(employee)
 
+    // let's store the employee index as the id of the card div, so it will be easy to know which employee details to show on the modal view
     const cardDivElement = `
-    <div class="card">
+    <div id=${employee.index} class="card">
         <img class="avatar" src="${employee.profilePicUrl}" alt="Employee picture">
 
         <div class="card-description">
@@ -60,6 +60,58 @@ const generateEmployeeCard = (employee) => {
     `;
 
     $cardsDiv.append(cardDivElement);
+}
+
+const generateModalView = (employeeId) => {
+    
+    // get the chosen employee from the array
+    const employee = employees[employeeId];
+
+    // populate the modalContentDiv with employee details
+    const modalContent = `
+        <span class="btn btn-close">X</span>
+        <img class="avatar-modal" src="${employee.profilePicUrl}" alt="Employee picture">
+        <h2 class="name-modal">${employee.fullName}</h2>
+        <p class="contact-modal">${employee.email}</p>
+        <p class="contact-modal">${employee.city}</p>
+        <span class="btn btn-prev"><</span>
+        <span class="btn btn-next">></span>
+        <p class="contact-modal top-separator">${employee.phone}</p>
+        <p class="contact-modal">${employee.fullAddress}</p>
+        <p class="contact-modal">${employee.dateOfBirth}</p>
+    `;
+
+    $modalContentDiv.html(modalContent);
+
+    // show modal view
+    $modalContainerDiv.show();
+}
+
+const showPrevEmployee = () => {
+    if (employeeNavigationTracker > 0) {
+        employeeNavigationTracker--;
+        generateModalView(employeeNavigationTracker);
+
+        return;
+    }
+
+    console.log(`Either there's no previous employee or next employee in the array. Doing nothing`);
+}
+
+const showNextEmployee = () => {
+    if (employeeNavigationTracker < employees.length - 1) {
+        employeeNavigationTracker++;
+        generateModalView(employeeNavigationTracker);
+
+        return;
+    }
+
+    console.log(`Either there's no previous employee or next employee in the array. Doing nothing`);
+}
+
+const clearModalView = () => {
+    $modalContentDiv.html(``);
+    $modalContainerDiv.hide();
 }
 
 const parseEmployeeJSON = (jsonData) => {
@@ -107,17 +159,20 @@ $(document).ready( ()=> {
 
 $cardsDiv.on(`click`, `.card`, (event) => {
 
+    console.log(event.target);
+
+    // get the card's employee index
     const cardClicked = event.target;
-    const cardClickedId = event.target.id;
+    const cardClickedId = event.target.id; // this returns a string. still need to convert to int
+    const idAsInteger = parseInt(cardClickedId);
 
-    // get the card's employee info
-
-    // look for that employee in the employees array
-
-    // show the modal view and fill it up with that employee's info
-
-    //todo: continue here. need to populate the modal card 
+    employeeNavigationTracker = idAsInteger;
+    console.log(`event target id: ${cardClickedId}`);
+    console.log(`event target id number: ${idAsInteger}`);
     
+
+    // show that employee on the modal view
+    generateModalView(employeeNavigationTracker);
 });
 
 $modalContentDiv.on(`click`, `span`, (event) => {
@@ -126,13 +181,18 @@ $modalContentDiv.on(`click`, `span`, (event) => {
 
     if ($(spanClicked).hasClass(`btn-close`)) {
         // hide the modal view
+        employeeNavigationTracker = 0;
+
+        clearModalView();
     } else if ($(spanClicked).hasClass(`btn-prev`)) {
-        // if there is a prev employee in the array, fill up with prev employee's info
-
-        // if none, do nothing
+        // navigate to prev employee
+        console.log(`Showing previous employee`);
+        
+        showPrevEmployee();
     } else {
-        // if there is a next employee in the array, fill up with next employee's info
+        // navigate to next employee
+        console.log(`Showing next employee`);
 
-        // if none, do nothing
+        showNextEmployee();
     }
 });
