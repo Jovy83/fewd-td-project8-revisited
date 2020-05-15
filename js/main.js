@@ -14,10 +14,11 @@ const $modalContentDiv = $(`#modalContentDiv`);
 const numberOfResults = 12;
 const apiUrl = `https://randomuser.me/api/?results=${numberOfResults}&nat=us`
 let employees = [];
+let filteredEmployees = [];
 let employeeNavigationTracker = 0;
 
 /* ============================================= */
-/*              Helper functions                 */
+/*              Helper/Logic functions           */
 /* ============================================= */
 
 const convertStringToBoolean = string => {
@@ -162,8 +163,9 @@ $cardsDiv.on(`click`, `.card`, (event) => {
     console.log(event.target);
 
     // get the card's employee index
-    const cardClicked = event.target;
-    const cardClickedId = event.target.id; // this returns a string. still need to convert to int
+    const cardClicked = event.target.closest(`.card`); // useful method that allows us to traverse up the tree until it finds the node that matches the selection
+
+    const cardClickedId = cardClicked.id; // this returns a string. still need to convert to int
     const idAsInteger = parseInt(cardClickedId);
 
     employeeNavigationTracker = idAsInteger;
@@ -195,4 +197,35 @@ $modalContentDiv.on(`click`, `span`, (event) => {
 
         showNextEmployee();
     }
+});
+
+$searchBoxInput.on(`keyup`, (event) => {
+    const searchString = $(event.target).val().toLowerCase();
+
+    const $employeeCardDivs = $(`.card`);
+    
+    // if searchString is empty, simply display all employees
+    if (searchString === ``) {
+        $employeeCardDivs.each( (index, card) => {
+            $(card).show();
+        });
+
+        return;
+    }
+
+    // loop through the employee cards div
+    $employeeCardDivs.each((index, card) => {
+        // get the employee name
+        const employeeName = employees[index].fullName.toLowerCase();
+
+        if(employeeName.substr(0, searchString.length).toLowerCase() === searchString) {
+            // there's a match!
+            // if match, show that card
+            $(card).show();
+        } else {
+            // if no match, hide that card
+            $(card).hide();
+        }
+
+    });
 });
