@@ -592,6 +592,7 @@ h5 {
   .card {
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }
 @media (min-width: 1024px) {
