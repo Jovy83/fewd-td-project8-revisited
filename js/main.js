@@ -12,7 +12,7 @@ const $modalContentDiv = $(`#modalContentDiv`);
 /* ============================================= */
 
 const numberOfResults = 12;
-const apiUrl = `https://randomuser.me/api/?results=${numberOfResults}&nat=us`
+const apiUrl = `https://randomuser.me/api/?results=${numberOfResults}&nat=us`;
 let employees = [];
 let filteredEmployees = [];
 let employeeNavigationTracker = 0;
@@ -27,7 +27,7 @@ const convertStringToBoolean = string => {
 
 const convertDateStringToMMDDYY = (dateString) => {
     return moment(dateString).calendar();
-}
+};
 
 const checkStatus = (response) => {
     if (response.ok) {
@@ -61,7 +61,7 @@ const generateEmployeeCard = (employee) => {
     `;
 
     $cardsDiv.append(cardDivElement);
-}
+};
 
 const generateModalView = (employeeId) => {
     
@@ -86,7 +86,7 @@ const generateModalView = (employeeId) => {
 
     // show modal view
     $modalContainerDiv.show();
-}
+};
 
 const showPrevEmployee = () => {
     if (employeeNavigationTracker > 0) {
@@ -97,7 +97,7 @@ const showPrevEmployee = () => {
     }
 
     console.log(`Either there's no previous employee or next employee in the array. Doing nothing`);
-}
+};
 
 const showNextEmployee = () => {
     if (employeeNavigationTracker < employees.length - 1) {
@@ -108,12 +108,12 @@ const showNextEmployee = () => {
     }
 
     console.log(`Either there's no previous employee or next employee in the array. Doing nothing`);
-}
+};
 
 const clearModalView = () => {
     $modalContentDiv.html(``);
     $modalContainerDiv.hide();
-}
+};
 
 const parseEmployeeJSON = (jsonData) => {
     // loop through the jsonData array
